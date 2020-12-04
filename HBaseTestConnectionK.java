@@ -48,6 +48,7 @@ public class HBaseTestConnectionK {
 			hdfs_path = properties.getProperty("hdfs_path");
 			principal = properties.getProperty("principal");
 			keytab = properties.getProperty("keytab");
+			hbaseTable = properties.getProperty("hbase_table");
  
 			results = "Using to connect = " + krb5_conf + ", " + hbase_path + ", " + hdfs_path+ ", " + principal+ ", " + keytab;
 			System.out.println(results + "\nProgram Ran on " + time);
@@ -80,7 +81,7 @@ public class HBaseTestConnectionK {
 		System.out.println(connection.getAdmin().isTableAvailable(TableName.valueOf("SYSTEM.STATS")));
 		
 		Scan scan1 = new Scan();
-		Table table = connection.getTable(TableName.valueOf("EMP1"));
+		Table table = connection.getTable(TableName.valueOf(hbase_table));
 		ResultScanner scanner = table.getScanner(scan1);
 		// Reading values from scan result
       	for (Result result = scanner.next(); result != null; result = scanner.next()) {
