@@ -81,7 +81,7 @@ public class HBaseTestConnectionK {
 		System.out.println(connection.getAdmin().isTableAvailable(TableName.valueOf("SYSTEM.STATS")));
 		
 		Scan scan1 = new Scan();
-		Table table = connection.getTable(TableName.valueOf(hbase_table));
+		Table table = connection.getTable(TableName.valueOf(hbaseTable));
 		ResultScanner scanner = table.getScanner(scan1);
 		// Reading values from scan result
       	for (Result result = scanner.next(); result != null; result = scanner.next()) {
