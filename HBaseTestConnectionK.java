@@ -29,6 +29,7 @@ public class HBaseTestConnectionK {
 		String hdfs_path = "";
 		String principal = "";
 		String keytab = "";
+		String hbaseTable = "";
 		
 		try {
 			Properties properties = new Properties();
